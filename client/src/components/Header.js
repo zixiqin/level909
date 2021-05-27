@@ -3,7 +3,7 @@ import OrderList from '../components/OrderList.js';
 import {Divider, Drawer, PageHeader} from 'antd';
 import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom';
-import {Button,Navbar, Nav,Modal,Form,DropdownButton,ButtonGroup,Dropdown,OverlayTrigger,Tooltip} from 'react-bootstrap';
+import {Button,Navbar,OverlayTrigger,Tooltip} from 'react-bootstrap';
 
 
 export default function Header(props) {
@@ -30,7 +30,7 @@ export default function Header(props) {
         if (history.location.pathname === "/customer"){
             setTitle('Welcome to Le Sillage, ' + props.customer.givenName)
             setTarget('customer');
-            setSelections([<Button variant = "outline-dark" key = "0"
+            setSelections([<Button variant = "outline-light" key = "0"
                 onClick = {()=> {
                     history.push('/profile',{
                         customer:props.customer,
@@ -38,7 +38,7 @@ export default function Header(props) {
                         password: props.password
                     });
                 }}>My Profile</Button>,
-            <Button variant = "outline-dark" key = "1" onClick = {handleDrawerShow}>My Orders</Button>])
+            <Button variant = "outline-light" key = "1" onClick = {handleDrawerShow}>My Orders</Button>])
         }else if (history.location.pathname === "/profile"){
             setTitle('Here is your profile setting~ ')
             setSelections([
