@@ -3,7 +3,7 @@ import OrderList from '../components/OrderList.js';
 import {Divider, Drawer, PageHeader} from 'antd';
 import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom';
-import {Button} from 'react-bootstrap';
+import {Button,Navbar, Nav,Modal,Form,DropdownButton,ButtonGroup,Dropdown,OverlayTrigger,Tooltip} from 'react-bootstrap';
 
 
 export default function Header(props) {
@@ -14,6 +14,13 @@ export default function Header(props) {
     const handleDrawerClose = () => setDrawerVisible(false); 
     const handleDrawerShow = () => setDrawerVisible(true); 
  
+    const goHomePage = () => {history.push('/')};
+    const renderTooltip = (props) => (
+        <Tooltip id = 'button-tooltip' {...props}>
+          Click here to go homepage
+        </Tooltip>
+      );
+
     const [title, setTitle] = useState('');
     const [target, setTarget] = useState('');
     const [selections, setSelections] = useState([]);
@@ -46,10 +53,27 @@ export default function Header(props) {
 
 
     return (
-        <div>
-            <PageHeader title = {title}
+            <Navbar id="nav" >
+                <OverlayTrigger
+                    placement = "right"
+                    delay = {{show:250, hide: 300}}
+                    overlay = {renderTooltip} >
+                    <Button variant="outline-light" size="" onClick={goHomePage}>
+                        <img alt="" src="/coffee-truck.png" width="70" height="50" className="d-inline-block align-top"/>
+                    </Button>
+                </OverlayTrigger>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="navbar navbar-expand-lg navbar-light bg-light">
+                <nav class="navbar navbar-dark">
+                    <span class="navbar-brand">
+                        {title}
+                    </span>
+                </nav>
+                </Navbar.Collapse>
+                {selections}
+            {/* <PageHeader title = {title}
                 extra = {selections}>
-            </PageHeader>
+            </PageHeader> */}
             <Drawer visible ={drawerVisible}
                 closable = {true}
                 onClose = {handleDrawerClose}
@@ -61,6 +85,7 @@ export default function Header(props) {
                             orders={props.orders} 
                             />
             </Drawer>
-        </div>
+        </Navbar> 
+
     )
 }
