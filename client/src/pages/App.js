@@ -180,27 +180,28 @@ function App(props) {
   )
  
   return (
-    <div style={{width: '40%', margin :'auto', marginTop: '20%'}}>
+    <div style={{width: '40%', margin :'auto', marginTop: '3%'}}>
+      
       <Modal show={show} onHide={handleClose} style={{ marginTop: '2vh' }} >
         {(modal === "customer")? customerModal : vendorModal}
       </Modal>
       <Jumbotron style = {{background: "white"}}>
         <h1>
-        <img alt="" src="/coffee-truck.png" width="60" height="40" className="d-inline-block align-top"/>
+        <img alt="" src="/coffee-truck.png" width="60" height="40" className="d-inline-block align-top" style = {{marginLeft: "8vw"}}/>
           Welcome to Le Sillage !!
         </h1>
-        <p>
+        <p style = {{marginLeft: "12vw"}}>
           Please select one to continue:
         </p>
         <p>
-          <Button variant = "outline-dark" onClick = {handleShow} style = {{marginLeft: "5vw"}}>Customer</Button>
+          <Button variant = "outline-dark" onClick = {handleShow} style = {{marginLeft: "8vw"}}>Customer</Button>
           <Button variant = "dark" onClick = {handleShow} style = {{marginLeft: "10vw"}}>Vendor</Button>
         </p>
       </Jumbotron>
       <p>
           The map may not stable, please zoom out to find your position:
       </p>
-      <MapContainer center={your_pos} zoom={18} scrollWheelZoom={false} style={{height: "50vh"}}>
+      <MapContainer center={your_pos} zoom={1} scrollWheelZoom={false} style={{height: "50vh"}}>
       <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
                     <Marker position={your_pos}>
