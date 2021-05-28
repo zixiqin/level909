@@ -105,6 +105,12 @@ function App(props) {
     });
   }
 
+  const onMenu = () => {
+    props.history.push('/Menu',{
+      position:[lat, lng],
+      vendors: vendors
+    })
+}
 
 
   const customerModal = (
@@ -195,7 +201,8 @@ function App(props) {
         </p>
         <p>
           <Button variant = "outline-dark" onClick = {handleShow} style = {{marginLeft: "8vw"}}>Customer</Button>
-          <Button variant = "dark" onClick = {handleShow} style = {{marginLeft: "10vw"}}>Vendor</Button>
+          <Button variant = "primary" onClick = {onMenu} style = {{marginLeft: "4vw"}}>Menu</Button>
+          <Button variant = "dark" onClick = {handleShow} style = {{marginLeft: "4vw"}}>Vendor</Button>
         </p>
       </Jumbotron>
       <p>
