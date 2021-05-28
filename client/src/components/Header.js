@@ -1,19 +1,23 @@
 import OrderList from '../components/OrderList.js';
 
-import {Divider, Drawer, PageHeader} from 'antd';
+import {Divider} from 'antd';
 import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom';
-import {Button,Navbar,OverlayTrigger,Tooltip} from 'react-bootstrap';
+import {Button,Navbar,OverlayTrigger,Tooltip, Modal} from 'react-bootstrap';
 
 
 export default function Header(props) {
 
     let history = useHistory();
 
-    const [drawerVisible, setDrawerVisible] = useState(false); 
-    const handleDrawerClose = () => setDrawerVisible(false); 
-    const handleDrawerShow = () => setDrawerVisible(true); 
+    // const [drawerVisible, setDrawerVisible] = useState(false); 
+    // const handleDrawerClose = () => setDrawerVisible(false); 
+    // const handleDrawerShow = () => setDrawerVisible(true); 
  
+    const[modalVisible, setModalVisible]= useState(props.modalVisible);
+    const handleModalShow = () => setModalVisible(true);
+    const handleModalClose = () => setModalVisible(false);
+
     const goHomePage = () => {history.push('/')};
     const renderTooltip = (props) => (
         <Tooltip id = 'button-tooltip' {...props}>
@@ -38,7 +42,7 @@ export default function Header(props) {
                         password: props.password
                     });
                 }}>My Profile</Button>,
-            <Button variant = "outline-light" key = "1" onClick = {handleDrawerShow}>My Orders</Button>])
+            <Button variant = "outline-light" key = "1" onClick = {handleModalShow}>My Orders</Button>])
         }else if (history.location.pathname === "/profile"){
             setTitle('Here is your profile setting~ ')
             setSelections([
@@ -71,7 +75,20 @@ export default function Header(props) {
                 </nav>
                 </Navbar.Collapse>
                 {selections}
-            <Drawer visible ={drawerVisible}
+
+            <Modal show={modalVisible} onHide={handleModalClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>All orders </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Divider/>
+                    <OrderList id = {props.id}
+                            target = {target} 
+                            orders={props.orders} 
+                            />
+                </Modal.Body>
+            </Modal>
+            {/* <Drawer visible ={drawerVisible}
                 closable = {true}
                 onClose = {handleDrawerClose}
                 width={"60vw"}>
@@ -81,7 +98,7 @@ export default function Header(props) {
                             target = {target} 
                             orders={props.orders} 
                             />
-            </Drawer>
+            </Drawer> */}
         </Navbar> 
 
     )
