@@ -17,7 +17,7 @@ export default function Menu(props){
 
     const vendorIcon = new Icon({
         iconUrl: image,
-        iconSize: [30,30]
+        iconSize: [40,40]
     })
 
     const[order, setOrder] = useState([]);
@@ -98,7 +98,7 @@ export default function Menu(props){
                     {props.snacks.map((snack, index) =>(
                         <Card cover={<img alt="example" src={snack.image} />} style={{marginBottom:"2vh"}} size={"small"} key={snack._id}>
                             <Meta
-                                title={snack.name + "   " + "$" +snack.price} style={{marginTop:"2vh"}} 
+                                title={snack.name + " $" +snack.price} style={{marginTop:"2vh"}} 
                             />
                             <Divider style={{borderWidth:5, borderColor: '#6e4020' }} plain>
                             </Divider>

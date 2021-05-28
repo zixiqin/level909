@@ -132,10 +132,10 @@ function App(props) {
                 onChange={e => setPassword(e.target.value)} /> 
             </Form.Group>
           </Form>
-          <Link onClick={onSkip}>
+          <Link style={{color: "#6e4020"}} onClick={onSkip}>
             Skip for now
             </Link>
-          <Link onClick={onCustomerRegister} style = {{marginLeft: "1vw"}}>
+          <Link onClick={onCustomerRegister} style = {{marginLeft: "1vw", color: "#6e4020"}}>
             Register now
           </Link>
         </Modal.Body>
