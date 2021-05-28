@@ -185,7 +185,7 @@ function App(props) {
   )
  
   return (
-    <div style={{width: '50%', margin :'center', marginTop: '3%'}}>
+    <div style={{width: '50%', margin :'auto', marginTop: '3%'}}>
       
       <Modal show={show} onHide={handleClose} style={{ marginTop: '2vh' }} >
         {(modal === "customer")? customerModal : vendorModal}
