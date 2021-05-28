@@ -96,14 +96,14 @@ export default function Menu(props){
                 </Modal.Header>
                 <Modal.Body>
                     {props.snacks.map((snack, index) =>(
-                        <Card cover={<img alt="example" src={snack.image} />}style={{marginBottom:"2vh"}}size={"small"} key={snack._id}>
+                        <Card cover={<img alt="example" src={snack.image} />} style={{marginBottom:"2vh"}} size={"small"} key={snack._id}>
                             <Meta
-                                title={snack.name + "   " + "$" +snack.price}
+                                title={snack.name + "   " + "$" +snack.price} style={{marginTop:"2vh"}} 
                             />
-                            <Divider style={{borderWidth:5, borderColor: '#593e34' }} plain>
+                            <Divider style={{borderWidth:5, borderColor: '#6e4020' }} plain>
                             </Divider>
                             <Meta
-                                description={snack.detail}
+                                description={snack.detail} style={{marginBottom:"1vh"}}
                             />
                             <InputNumber key ={snack._id} min={0} defaultValue={0} style ={{marginLeft:"80%"}} onChange={e => onChange(index, e)} />
                                 

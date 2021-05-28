@@ -53,7 +53,7 @@ function App(props) {
   const onCustomerLogin = () => {
     axios.post("/customer/login", {email: email, password: password}).then(response => {
       if(response.data.success){
-        //传递本页信息到下一页
+        message.success("Logged in successfully!!")
         props.history.push('/customer', {
           customer : response.data.customer, 
           vendors: vendors, 
@@ -73,7 +73,6 @@ function App(props) {
   const onVendorLogin = () => {
     axios.post("/vendor/login", {userName: userName, password: password}).then(response => {
       if(response.data.success){
-        //传递本页信息到下一页
         message.success("Logged in successfully!!")
         props.history.push('/vendor', {
           vendor : response.data.vendor, 

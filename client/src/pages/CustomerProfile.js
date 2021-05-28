@@ -19,8 +19,6 @@ export default function CustomerProfile(props) {
         else{setDisable(true)}
     }
 
-    
-
     const onSubmit = () => {
         const updateBody = {
             "givenName": givenName,
