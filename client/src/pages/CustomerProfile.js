@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Button, Form, Input, Divider, Typography, message } from 'antd';
 import axios from '../commons/axios.js';
 import Header from '../components/Header.js';
+import { Carousel } from 'antd';
 
 export default function CustomerProfile(props) {
 
@@ -36,7 +37,14 @@ export default function CustomerProfile(props) {
             message.error("another customer already registered that email")
         })
     }
-
+    const contentStyle = {
+        height: '160px',
+        color: '#fff',
+        lineHeight: '160px',
+        textAlign: 'center',
+        background: '#364d79',
+      };
+      
     return (
         <>
             <Header/>
@@ -71,6 +79,7 @@ export default function CustomerProfile(props) {
                     </Form.Item>
                 </Form>
             </div>
+            
         </>
     )
 }
