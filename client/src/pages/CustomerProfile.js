@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Button, Form, Input, Divider, Typography, message } from 'antd';
 import axios from '../commons/axios.js';
 import Header from '../components/Header.js';
+import {Jumbotron} from 'react-bootstrap';
 
 export default function CustomerProfile(props) {
 
@@ -40,9 +41,10 @@ export default function CustomerProfile(props) {
     return (
         <>
             <Header/>
+            <Jumbotron style={{width: '50%', margin :'auto', marginTop: '3%',backgroundColor :"#f5e3ce"}}>
             <div style={{width: '40%', margin: 'auto'}}>
-                <Form form={form} layout="vertical">
-                    <Form.Item label="Given Name">
+                <Form form={form} layout="vertical" >
+                    <Form.Item label="Given Name" style = {{color: "red"}}>
                         <Input placeholder="given name" defaultValue={givenName}
                             onChange={e => setGivenName(e.target.value)} />
                     </Form.Item>
@@ -70,8 +72,9 @@ export default function CustomerProfile(props) {
                         <Button type="dark" onClick={onSubmit}>Submit</Button>
                     </Form.Item>
                 </Form>
+                
             </div>
-            
+            </Jumbotron>
         </>
     )
 }
