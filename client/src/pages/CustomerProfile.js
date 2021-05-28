@@ -81,28 +81,7 @@ export default function CustomerProfile(props) {
                     </Form.Item>
                 </Form>
             </div>
-            <Carousel autoplay>
-        <div>
-        <h3>
-        <img  src="https://images.unsplash.com/photo-1449049607083-e29383d58423?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" width="400" height="300" className="d-inline-block align-top" style = {{marginLeft: "40vw"}}/> 
-        </h3>
-        </div>
-        <div>
-          <h3>
-          <img  src="https://images.unsplash.com/photo-1517559911230-415def7b667f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" width="400" height="300" className="d-inline-block align-top" style = {{marginLeft: "40vw"}}/> 
-          </h3>
-        </div>
-        <div>
-          <h3>
-          <img  src="https://images.unsplash.com/photo-1594470677322-4eb47f343f3c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=473&q=80" width="400" height="300" className="d-inline-block align-top" style = {{marginLeft: "40vw"}}/> 
-          </h3>
-        </div>
-        <div>
-          <h3>
-          <img  src="https://images.unsplash.com/photo-1587491439149-bd2ff295d450?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" width="400" height="300" className="d-inline-block align-top" style = {{marginLeft: "40vw"}}/> 
-          </h3>
-        </div>
-      </Carousel>
+            
         </>
     )
 }
