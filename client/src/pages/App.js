@@ -185,24 +185,29 @@ function App(props) {
   )
  
   return (
-    <div style={{width: '40%', margin :'auto', marginTop: '3%'}}>
+    <div style={{width: '50%', margin :'center', marginTop: '3%'}}>
       
       <Modal show={show} onHide={handleClose} style={{ marginTop: '2vh' }} >
         {(modal === "customer")? customerModal : vendorModal}
       </Modal>
       <Jumbotron style = {{background: "white"}}>
         <h1>
-        <img alt="" src="/coffee-truck.png" width="60" height="40" className="d-inline-block align-top" style = {{marginLeft: "8vw"}}/>
+        <img alt="" src="/coffee-truck.png" width="60" height="40" className="d-inline-block align-top" style = {{marginLeft: "14vw"}}/>
           Welcome to Le Sillage !!
         </h1>
-        <p style = {{marginLeft: "12vw"}}>
+        <h3 style = {{marginLeft: "2vw"}}>
           Please select one to continue:
+        </h3>
+        <p>
+          <Button variant = "warning" onClick = {handleShow} size="lg" block>Customer</Button>
         </p>
         <p>
-          <Button variant = "outline-dark" onClick = {handleShow} style = {{marginLeft: "8vw"}}>Customer</Button>
-          <Button variant = "primary" onClick = {onMenu} style = {{marginLeft: "4vw"}}>Menu</Button>
-          <Button variant = "dark" onClick = {handleShow} style = {{marginLeft: "4vw"}}>Vendor</Button>
+          <Button variant = "info" onClick = {onMenu} size="lg" block>Menu</Button>
         </p>
+        <p>
+          <Button variant = "dark" onClick = {handleShow} size="lg" block>Vendor</Button>
+        </p>
+        
       </Jumbotron>
       <p>
           The map may not stable, please zoom out to find your position:
