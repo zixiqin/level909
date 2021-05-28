@@ -1,12 +1,11 @@
 import {useState, useEffect} from 'react';
-import {Jumbotron, Button, OverlayTrigger,Tooltip, Modal, Form} from 'react-bootstrap';
+import {Jumbotron, Button, Modal, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "../commons/axios"
 // import { response } from 'express';
 import { message, Typography } from 'antd';
 import 'antd/dist/antd.css'
-import e from 'cors';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 
 const{Link}=Typography;
 

@@ -33,7 +33,7 @@ return(
                 <Col span={8}>
                 <Card id="coffeemenu" hoverable
                         cover={<img alt="" src={snack.image} ></img>} >
-                        <Meta title={snack.name + "    " + "$"+snack.price} description={snack.detail} />
+                        <Meta title={snack.name + " $"+snack.price} description={snack.detail} />
                     </Card>
                 </Col>
             ))}

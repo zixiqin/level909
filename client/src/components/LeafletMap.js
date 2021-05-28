@@ -3,9 +3,13 @@ import React, {useState, useMemo} from 'react'
 import {useHistory} from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import {Button, Form, Modal} from 'react-bootstrap';
-import {message} from 'antd';
+
+
 import Menu from './Menu.js';
 import axios from "../commons/axios"
+import {message} from 'antd';
+import cafeIcon from "../icons/cafe.png"
+import {Icon} from "leaflet";
 
 export default function LeafletMap(props) {
     let history = useHistory();
@@ -16,6 +20,13 @@ export default function LeafletMap(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
+    const vendorParkIcon = new Icon({
+        iconUrl: cafeIcon,
+        iconSize: [40,40]
+    })
+
 
     const eventHandlers = useMemo(
         (e)=> ({
@@ -29,8 +40,8 @@ export default function LeafletMap(props) {
         }),
         [],
     )
-
-    const onPark = () =>{
+//
+    const parkingInfo = () =>{
         console.log(props.vendor.id, position.lat, position.lng)
         axios.post('/vendor/park/' + props.vendor.id, {
             location: [position.lat, position.lng],
@@ -46,28 +57,29 @@ export default function LeafletMap(props) {
         })
     }
 
-    // five vendors has a menu to show
-    const renderFiveVendors = props.vendors.map((vendor)=>{
+    // five vendors has a menu to show 
+    const infoIdFiveVendors = props.vendors.map((vendor)=>{
         return (
             <Menu key={vendor.id}
             position = {vendor.location}
+            customer = {props.customer} 
             snacks = {props.snacks}
-            vendor = {vendor}
-            customer = {props.customer} />
+            vendor = {vendor}/>
         )
     })
 
-    const renderCustomerMarker = (
+    const PosCustomerMarker = (
         <Marker position = {props.center} iconUrl = {'https://static.thenounproject.com/png/780108-200.png'}>
-            <Popup>Your current location is here!</Popup>
+            <Popup>Your are Here!!</Popup>
         </Marker>
     )
 
-    const renderVendorMarker = (
-        <Marker
-        draggable = {true}
+    const PosVendorMarker = (
+        <Marker        
         eventHandlers = {eventHandlers}
-        position = {position}>
+        icon = {vendorParkIcon}
+        position = {position}
+        draggable = {true}>
         </Marker>
     )
 
@@ -91,7 +103,7 @@ export default function LeafletMap(props) {
                     </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-dark" onClick={onPark}>
+                <Button variant="outline-dark" onClick={parkingInfo}>
                     Submit
                 </Button>
             </Modal.Footer>
@@ -105,9 +117,9 @@ export default function LeafletMap(props) {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     
                 />
-                {(history.location.pathname ==='/vendor') ? renderVendorMarker : <></>}
-                {(history.location.pathname ==='/customer') ? renderCustomerMarker : <></>}
-                {(history.location.pathname ==='/customer') ? renderFiveVendors : <></>}
+                {(history.location.pathname ==='/vendor') ? PosVendorMarker : <></>}
+                {(history.location.pathname ==='/customer') ? infoIdFiveVendors : <></>}
+                {(history.location.pathname ==='/customer') ? PosCustomerMarker : <></>}
             </MapContainer>
         </>
     )
