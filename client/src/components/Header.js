@@ -71,9 +71,6 @@ export default function Header(props) {
                 </nav>
                 </Navbar.Collapse>
                 {selections}
-            {/* <PageHeader title = {title}
-                extra = {selections}>
-            </PageHeader> */}
             <Drawer visible ={drawerVisible}
                 closable = {true}
                 onClose = {handleDrawerClose}
